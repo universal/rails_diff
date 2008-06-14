@@ -1,13 +1,49 @@
-RailsDiff
-=========
+=RailsDiff
+====
 
-Introduction goes here.
+This is a small plug-in to provide an easy way to display a diff of two "files"
+(long strings...) as html. It uses the diff-lcs gem to calculate the diff. 
+The default output "generator" creates table-rows in the following scheme:
 
+| Old-Line-Nr | Old-File | New-File | Old-Line-Nr |
 
-Example
-=======
+It applies different css classes to the elements depending on match/difference.
 
-Example goes here.
+==Source
+====
+http://github.com/universal/rails-diff/tree/master
 
+==Requirements
+====
 
-Copyright (c) 2008 [name of plugin creator], released under the MIT license
+This plug-in relies on the diff-lcs gem.
+
+==Installation
+====
+
+install it as any other plug-in and be sure to include the provided sample css or 
+your own css rules to the applications-stylesheet.
+
+==Example
+====
+
+in your view simply call:
+
+<%= diff(@difftest.old, @difftest.new) %>
+
+which results in:
+
+<tr><td>1. </td><td><pre class="only_a">require 'digest/sha1'</pre></td><td><pre class="only_b">require 'digest/sha2'</pre></td><td>1. </td></tr>
+
+<tr><td>2. </td><td colspan="2"><pre class="match"></pre></td><td>2. </td></tr>
+
+<tr><td>3. </td><td colspan="2"><pre class="match">class User < ActiveRecord::Base</pre></td><td>3. </td></tr>
+
+...
+
+==ToDo
+====
+
+Tests...
+
+Copyright (c) 2008 [Johannes / jhed@informatik.uni-kiel.de], released under the MIT license

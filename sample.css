@@ -1,0 +1,21 @@
+.diff {
+    border: 1px solid black;
+    margin: 1em 2em;
+}
+pre {
+  padding-left: 1em;
+  margin: 0;
+  font-family: Lucida, Courier, monospaced;
+}
+
+.match {
+  background-color: #DDFFDD; 
+}
+.only_a {
+  background-color: #fdd;
+  color: red;
+}
+.only_b {
+  background-color: #ddf;
+  color: blue;
+}
