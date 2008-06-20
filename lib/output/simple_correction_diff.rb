@@ -19,11 +19,11 @@ class Output::SimpleCorrectionDiff #:nodoc:
 
     # This will be called when there is a line in A that isn't in B
   def discard_a(event)
-    @content << %Q|<pre class="only_a">#{html_escape(event.new_element)}</pre><br/>\n|
+    @content << %Q|<pre class="only_a"><del>#{html_escape(event.new_element)}</del></pre><br/>\n|
   end
 
     # This will be called when there is a line in B that isn't in A
   def discard_b(event)
-    @content << %Q|<pre class="only_b">#{html_escape(event.new_element)}</pre><br/>\n|
+    @content << %Q|<pre class="only_b"><ins>#{html_escape(event.new_element)}</ins></pre><br/>\n|
   end
 end

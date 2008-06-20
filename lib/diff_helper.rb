@@ -5,7 +5,6 @@ module DiffHelper
     RailsDiff.line_diff(old,new)
   end
   
-  
   def correction_diff(old, new)
     RailsDiff.correction_diff(old, new, Output::SimpleCorrectionDiff)
   end
