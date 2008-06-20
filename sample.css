@@ -7,6 +7,9 @@ pre {
   margin: 0;
   font-family: Lucida, Courier, monospaced;
 }
+.change {
+  background-color: #A6A6A6;
+}
 
 .match {
   background-color: #DDFFDD; 
