@@ -11,7 +11,7 @@ class RailsDiff
     out.content
   end
   
-  def self.correction_diff(old, new, output = OutputSimpleCorrectionDiff)
+  def self.correction_diff(old, new, output = Output::SimpleCorrectionDiff)
     a = old.split(/\n|\r\n/)
     b = new.split(/\n|\r\n/)
     out = output.new

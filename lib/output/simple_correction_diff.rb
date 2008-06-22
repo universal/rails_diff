@@ -9,7 +9,11 @@ class Output::SimpleCorrectionDiff #:nodoc:
   end
     
   def change(event)
-    @content << %Q|<pre class="change">#{html_escape(event.new_element)}</pre><br/>\n|
+    out = Output::StringSimpleCorrectionDiff.new
+    Diff::LCS.traverse_balanced(event.old_element, event.new_element, out)
+
+#    @content << %Q|<pre class="change">#{html_escape(event.new_element)}</pre><br/>\n|
+    @content << %Q|<pre class="change">#{out.content}</span></pre><br/>\n|
   end
 
     # This will be called with both lines are the same
@@ -19,7 +23,7 @@ class Output::SimpleCorrectionDiff #:nodoc:
 
     # This will be called when there is a line in A that isn't in B
   def discard_a(event)
-    @content << %Q|<pre class="only_a"><del>#{html_escape(event.new_element)}</del></pre><br/>\n|
+    @content << %Q|<pre class="only_a"><del>#{html_escape(event.old_element)}</del></pre><br/>\n|
   end
 
     # This will be called when there is a line in B that isn't in A
