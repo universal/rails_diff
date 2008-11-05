@@ -15,5 +15,4 @@ module DiffHelper
   def vc_diff(old,new)
     RailsDiff.diff(old,new, Output::VcDiff)
   end
-  
 end

@@ -12,7 +12,7 @@ class Output::StringSimpleCorrectionDiff #:nodoc:
     if @last.nil?
       @content << %Q|<span class="change">|
     elsif @last != :change
-      @content << %Q|#{closing}</span><span class="change">|    
+      @content << %Q|#{closing}</span><span class="change">|
     end
     @content << %Q|<del class="only_a">#{event.old_element}</del><ins class="only_b">#{event.new_element.to_s}</ins>|
     @last = :change

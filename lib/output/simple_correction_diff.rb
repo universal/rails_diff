@@ -10,22 +10,22 @@ class Output::SimpleCorrectionDiff #:nodoc:
     
   def change(event)
     out = Output::StringSimpleCorrectionDiff.new
-    Diff::LCS.traverse_balanced(event.old_element, event.new_element, out)
-    @content << %Q|<pre class="change">#{out.content}#{out.closing}</span></pre>\n|
+    Diff::LCS.traverse_sequences(event.old_element, event.new_element, out)
+    @content << %Q|<span class="change">#{out.content}#{out.closing}</span><br/></span><br/>\n|
   end
 
     # This will be called with both lines are the same
   def match(event)
-    @content << %Q|<pre class="match">#{event.new_element}</pre>\n|
+    @content << %Q|<span class="match">#{event.new_element}</span><br/>\n|
   end
 
     # This will be called when there is a line in A that isn't in B
   def discard_a(event)
-    @content << %Q|<pre class="only_a"><del>#{event.old_element}</del></pre>\n|
+    @content << %Q|<span class="only_a"><del>#{event.old_element}</del></span><br/>\n|
   end
 
     # This will be called when there is a line in B that isn't in A
   def discard_b(event)
-    @content << %Q|<pre class="only_b"><ins>#{event.new_element}</ins></pre>\n|
+    @content << %Q|<span class="only_b"><ins>#{event.new_element}</ins></span><br/>\n|
   end
 end
