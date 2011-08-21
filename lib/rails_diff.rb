@@ -1,4 +1,3 @@
-require 'action_view/template_handlers/erb'
 class RailsDiff
   # add html_escape to class level ;)
   extend ERB::Util
@@ -14,3 +13,4 @@ class RailsDiff
     out.content
   end
 end
+
