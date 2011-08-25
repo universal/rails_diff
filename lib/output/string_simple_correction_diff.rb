@@ -1,13 +1,12 @@
-require 'action_view/template_handlers/erb'
 class Output::StringSimpleCorrectionDiff #:nodoc:
-  
+
   attr_accessor :content, :last, :closing
 
   def initialize
     @content = ""
-    
+
   end
-    
+
   def change(event)
     if @last.nil?
       @content << %Q|<span class="change">|
@@ -55,3 +54,4 @@ class Output::StringSimpleCorrectionDiff #:nodoc:
     @closing = "</ins>"
   end
 end
+

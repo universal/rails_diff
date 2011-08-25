@@ -1,4 +1,3 @@
-require 'action_view/template_handlers/erb'
 class Output::SimpleCorrectionDiff #:nodoc:
   include ERB::Util
 
@@ -7,7 +6,7 @@ class Output::SimpleCorrectionDiff #:nodoc:
   def initialize
     @content = ""
   end
-    
+
   def change(event)
     out = Output::StringSimpleCorrectionDiff.new
     Diff::LCS.traverse_sequences(event.old_element, event.new_element, out)
@@ -29,3 +28,4 @@ class Output::SimpleCorrectionDiff #:nodoc:
     @content << %Q|<span class="only_b"><ins>#{event.new_element}</ins></span><br/>\n|
   end
 end
+
